@@ -9,8 +9,8 @@ const Card = ({ href, isReady, src, text }: CardProps) => {
   return (
     <a href={href} className="relative group mb-8 text-lg">
       <div className="absolute invisible top-4 start-4 h-full w-full z-10 text-white text-xl shadow-sm font-semibold lg:group-hover:visible">
-        <p>{text}</p>
-        {isReady == false && <span className="text-lgray">Coming Soon</span>}
+        <p className="font-semibold">{text}</p>
+        {isReady == false && <span className="text-gray">Coming Soon</span>}
         {isReady == true ? (
           <div className="absolute top-0 end-8 p-3 bg-white size-12 rounded-full">
             <svg
@@ -55,8 +55,9 @@ const Card = ({ href, isReady, src, text }: CardProps) => {
       {isReady == true ? (
         <small className="lg:invisible">{text}</small>
       ) : (
-        <small className="lg:invisible">
-          {text} <span className="text-gray">Coming Soon</span>
+        <small className="lg:invisible flex gap-2 items-center">
+          <span className="font-semibold">{text}</span>{" "}
+          <span className="text-gray">Coming Soon</span>
         </small>
       )}
     </a>

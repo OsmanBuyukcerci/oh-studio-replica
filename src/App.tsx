@@ -1,9 +1,28 @@
+import { useEffect } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import NavBar from "./components/NavBar";
 import VideoCard from "./components/VideoCard";
 
 function App() {
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      const shopElement = document.getElementById("shop-link");
+      if (shopElement) {
+        document.body.onscroll = () => {
+          const isAtBottom =
+            document.body.scrollHeight - window.innerHeight === window.scrollY;
+
+          if (isAtBottom) {
+            shopElement.style.visibility = "hidden";
+          } else {
+            shopElement.style.visibility = "visible";
+          }
+        };
+      }
+    }
+  }, []);
+
   return (
     <div className="relative flex flex-col justify-center items-center">
       {/* Navigation Bar */}
@@ -119,7 +138,7 @@ function App() {
       </div>
 
       {/* Footer */}
-      <div className="w-full lg:w-4/6 relative text-sm font-semibold mb-8">
+      <div className="w-full lg:w-4/6 relative text-xs sm:text-sm font-semibold mb-8">
         <div className="author absolute -top-6 start-12 lg:start-0">
           © Oli Harris 2023
         </div>
@@ -138,7 +157,7 @@ function App() {
 
       {/* Shop Link */}
       <a
-        id="link"
+        id="shop-link"
         className="flex items-center justify-center gap-2 rounded-full w-auto text-xl py-3 px-5 text-center bg-black text-white scale-75 fixed bottom-4"
         href="#"
       >

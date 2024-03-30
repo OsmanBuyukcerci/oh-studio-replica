@@ -7,9 +7,9 @@ interface VideoCardProps {
 
 const VideoCard = ({ href, isReady, src, text }: VideoCardProps) => {
   return (
-    <div className="relative group">
+    <a href={href} className="relative group">
       <div className="absolute invisible top-4 start-4 w-full z-10 text-white text-xl shadow-sm font-semibold lg:group-hover:visible">
-        <p>{text}</p>
+        <p className="font-semibold">{text}</p>
         {isReady == false && <span className="text-gray">Coming Soon</span>}
         {isReady == true ? (
           <div className="absolute top-0 end-8 p-3 bg-white size-12 rounded-full">
@@ -48,22 +48,21 @@ const VideoCard = ({ href, isReady, src, text }: VideoCardProps) => {
           </div>
         )}
       </div>
-      <a href={href}>
-        <div>
-          <video
-            className="rounded-lg h-full w-full lg:group-hover:blur-sm"
-            src={src}
-            autoPlay
-            loop
-            playsInline
-            muted
-          ></video>
-        </div>
-      </a>
-      <a href={href}>
-        <small className="lg:invisible">{text}</small>
-      </a>
-    </div>
+      <div>
+        <video
+          className="rounded-lg h-full w-full lg:group-hover:blur-sm"
+          src={src}
+          autoPlay
+          loop
+          playsInline
+          muted
+        ></video>
+      </div>
+      <small className="lg:invisible flex gap-2 items-center">
+        <span className="font-semibold">{text}</span>{" "}
+        {isReady == false && <span className="text-gray">Coming Soon</span>}
+      </small>
+    </a>
   );
 };
 
