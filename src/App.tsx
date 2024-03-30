@@ -119,9 +119,11 @@ function App() {
       </div>
 
       {/* Footer */}
-      <div className="w-4/6 relative text-sm font-semibold mb-8">
-        <div className="author absolute -top-6 start-0">© Oli Harris 2023</div>
-        <div className="socials flex gap-3 absolute -top-6 end-0">
+      <div className="w-full lg:w-4/6 relative text-sm font-semibold mb-8">
+        <div className="author absolute -top-6 start-12 lg:start-0">
+          © Oli Harris 2023
+        </div>
+        <div className="socials flex gap-3 absolute -top-6 end-12 lg:end-0">
           <a href="http://www.twitter.com" target="_blank">
             Twitter
           </a>

@@ -8,7 +8,7 @@ interface VideoCardProps {
 const VideoCard = ({ href, isReady, src, text }: VideoCardProps) => {
   return (
     <div className="relative group">
-      <div className="absolute invisible top-4 start-4 w-full z-10 text-white text-xl shadow-sm font-semibold group-hover:visible">
+      <div className="absolute invisible top-4 start-4 w-full z-10 text-white text-xl shadow-sm font-semibold lg:group-hover:visible">
         <p>{text}</p>
         {isReady == false && <span className="text-gray">Coming Soon</span>}
         {isReady == true ? (
@@ -51,7 +51,7 @@ const VideoCard = ({ href, isReady, src, text }: VideoCardProps) => {
       <a href={href}>
         <div>
           <video
-            className="rounded-lg h-full w-full group-hover:blur-sm"
+            className="rounded-lg h-full w-full lg:group-hover:blur-sm"
             src={src}
             autoPlay
             loop

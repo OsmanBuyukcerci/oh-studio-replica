@@ -55,7 +55,7 @@ const Card = ({ href, isReady, src, text }: CardProps) => {
       {isReady == true ? (
         <small className="lg:invisible">{text}</small>
       ) : (
-        <small className="lg:invisible font-semibold">
+        <small className="lg:invisible">
           {text} <span className="text-gray">Coming Soon</span>
         </small>
       )}
