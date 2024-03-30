@@ -1,27 +1,22 @@
-import { useEffect } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import NavBar from "./components/NavBar";
 import VideoCard from "./components/VideoCard";
 
 function App() {
-  useEffect(() => {
-    if (window.innerWidth < 600) {
-      const shopElement = document.getElementById("shop-link");
-      if (shopElement) {
-        document.body.onscroll = () => {
-          const isAtBottom =
-            document.body.scrollHeight - window.innerHeight === window.scrollY;
+  const shopElement = document.getElementById("shop-link");
+  if (shopElement) {
+    document.body.onscroll = () => {
+      const isAtBottom =
+        document.body.scrollHeight - window.innerHeight === window.scrollY;
 
-          if (isAtBottom) {
-            shopElement.style.visibility = "hidden";
-          } else {
-            shopElement.style.visibility = "visible";
-          }
-        };
+      if (isAtBottom) {
+        if (window.innerWidth < 768) shopElement.style.visibility = "hidden";
+      } else {
+        shopElement.style.visibility = "visible";
       }
-    }
-  }, []);
+    };
+  }
 
   return (
     <div className="relative flex flex-col justify-center items-center">
